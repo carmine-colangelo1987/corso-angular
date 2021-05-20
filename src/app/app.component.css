@@ -1,0 +1,11 @@
+div {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1, h4 {
+    text-align: center
+}
