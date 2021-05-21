@@ -1,0 +1,23 @@
+<!--String Interpolation-->
+<h3>{{sectionTitle}}</h3>
+<hr>
+<h6>Titolo</h6>
+<h4>{{post.title}}</h4>
+<p>
+    Commento <br />
+    {{post.comment}}
+</p>
+
+<!--Property Binding-->
+<button
+    class="btn btn-info me-2"
+    [disabled]="disableAddComment">
+    Aggiungi un commento
+</button>
+
+<!--Event Binding-->
+<button
+    class="btn btn-primary"
+    (click)="onClickedLike()">
+    {{post.liked ? 'Togli il ' : 'Aggiungi un '}} Like
+</button>

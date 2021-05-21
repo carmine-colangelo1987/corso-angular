@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col">
+        <label for="eventBinding">
+            Event Binding
+        </label>
+        <input
+            id="eventBinding"
+            type="text"
+            class="form-control"
+            (input)="onChangeText($event)" />
+    </div>
+    <div class="col">
+        <label for="twoWayBinding">
+            Two-Way Databinding
+        </label>
+        <input
+            id="twoWayBinding"
+            type="text"
+            class="form-control"
+            [(ngModel)]="text" />
+    </div>
+</div>
+
+<p class="lead text-center">{{text}}</p>
+
