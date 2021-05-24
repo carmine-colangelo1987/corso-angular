@@ -1,4 +1,25 @@
-<div>
-    <h4>Boilerplate del nostro</h4>
-    <h1>{{title}}</h1>
-</div>
+<main>
+    <button class="btn btn-primary mb-2" (click)="onLifecycleToggle()">
+        {{isLifecycleVisible ? 'Nascondi': 'Mostra'}}
+    </button>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" [(ngModel)]="presentationInput">
+        </div>
+        
+        <div class="col">
+            <input type="text" class="form-control" [(ngModel)]="presentationContent">
+        </div>
+    </div>
+    
+    <div class="container text-center">
+        <app-lifecycle *ngIf="isLifecycleVisible" [esclamazione]="presentationInput">
+            <p>
+                Ecco un esempio di Lifecycle<br />
+                (apri la console per vedere il mio ciclo di vita)<br>
+                <b>{{presentationContent}}</b>
+            </p>
+        </app-lifecycle>
+    </div>
+    
+</main>

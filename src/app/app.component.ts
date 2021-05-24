@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'corso-angular';
+  presentationInput = 'Ci sono!'
+  presentationContent = 'Questo è un content child'
+  isLifecycleVisible: boolean = false
+
+  onLifecycleToggle () {
+    this.isLifecycleVisible = !this.isLifecycleVisible
+  }
 }
