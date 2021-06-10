@@ -1,4 +1,77 @@
 <div>
     <h4>Boilerplate del nostro</h4>
     <h1>{{title}}</h1>
+
+    <div class="container">
+
+        <div *ngIf="isActive" class="badge badge-success">
+            Visibile
+        </div>
+    
+        <hr>
+
+        <ul class="list-group">
+            <li *ngFor="let item of list" class="list-group-item">
+                {{item.name}}
+            </li>
+        </ul>
+        
+        <hr>
+
+        <div class="card" [ngSwitch]="status">
+            <div class="card-body">
+                <span *ngSwitchCase="'enabled'" class="badge badge-success" >
+                    Abilitato
+                </span>
+    
+                <span *ngSwitchCase="'disabled'" class="badge badge-danger">
+                    Disabilitato
+                </span>
+                
+                <span *ngSwitchDefault class="badge badge-secondary">
+                    Sconosciuto
+                </span>
+            </div>
+        </div>
+
+        <p [ngStyle]="{height: pHeight+'px'}" [style.color]="'red'">
+            Questo paragrafo è alto {{pHeight}}px
+        </p>
+
+        <span class="badge" [ngClass]="{
+            'badge-success': status === 'enabled',
+            'badge-danger': status === 'disabled'}"
+            [class.badgeSecondary]="!status">
+            Stato!
+        </span>
+
+        <hr>
+
+        <div class="lead">
+            {{ 'Super Mario' | slice:0:7 }}
+            <hr>
+            {{ 2 | number :'2.0-2' }}
+            <hr>
+            {{ 2 | currency :'EUR':'Euri ':'1.2-2'  }}
+        </div>
+
+    </div>
+    
+    <div class="container">
+        <app-card>
+            Questo è il corpo!
+            <p footer>Questo è il footer</p>
+            ma anche questo è il corpo! <br>
+            quindi mi raccomando!
+            fate attenzione
+            <h4 header>Questa è la testa!</h4>
+        </app-card>
+
+        <app-article [prova]="prova" *ngIf="!isTimeToGoodbye">
+            <p *ngIf="textVisible" #testoArticoloContent>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex quis architecto amet impedit, sit, nam, atque laudantium deserunt natus voluptates aperiam quod dignissimos! Aperiam dolores praesentium quae nostrum aut ipsum?
+            </p>
+        </app-article>
+    </div>
+
 </div>
