@@ -3,6 +3,20 @@
     <h1>{{title}}</h1>
 
     <div class="container">
+        <div class="row row-columns-3">
+            <div class="col">
+                <app-user></app-user>
+            </div>
+            <div class="col">
+                <app-user></app-user>
+            </div>
+            <div class="col">
+                <app-user></app-user>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-none">
 
         <div *ngIf="isActive" class="badge badge-success">
             Visibile
@@ -57,7 +71,7 @@
 
     </div>
     
-    <div class="container">
+    <div class="container  d-none">
         <app-card>
             Questo è il corpo!
             <p footer>Questo è il footer</p>

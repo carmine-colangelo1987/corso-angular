@@ -7,6 +7,8 @@ import { SnakeCasePipe } from './pipes/snake-case.pipe';
 import { CardComponent } from './card/card.component';
 import { BtnComponent } from './btn/btn.component';
 import { ArticleComponent } from './article/article.component';
+import { UserComponent } from './components/user/user.component';
+import { PlanetComponent } from './components/planet/planet.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ArticleComponent } from './article/article.component';
     SnakeCasePipe,
     CardComponent,
     BtnComponent,
-    ArticleComponent
+    ArticleComponent,
+    UserComponent,
+    PlanetComponent
   ],
   imports: [
     BrowserModule
