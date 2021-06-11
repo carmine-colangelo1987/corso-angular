@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -6,16 +6,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  constructor(private router: Router, private route: ActivatedRoute ) { }
-
-  ngOnInit(): void {
-  }
+export class HomeComponent {
+  
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute ) { }
 
   onNavToPage2 () {
-    console.log(this.route)
-    this.router.navigate(['page2'], {relativeTo: this.route})
+    this.router.navigate(['/page2'])
   }
-
 }

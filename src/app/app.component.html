@@ -6,6 +6,28 @@
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="/page2">Page 2</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+          routerLinkActive="active" 
+          routerLink="/detail/Spiderman" 
+          [queryParams]="{ fromEarth: true }" 
+          fragment="ragnatele">Pagina di Spiderman</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+          routerLinkActive="active" 
+          routerLink="/detail/Hulk" 
+          [queryParams]="{ fromEarth: true }" 
+          fragment="spacca">Pagina di Hulk</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" 
+          routerLinkActive="active" 
+          routerLink="/detail/Thor" 
+          fragment="martello">Pagina di Thor</a>
+        </li>
       </ul>
+
+      <button class="btn" (click)="onNavToPage('Black Widow', 'sexy', true)">onNavToPage</button>
     <router-outlet></router-outlet>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'corso-angular';
+
+  constructor(
+    private router: Router) { }
+
+  onNavToPage (heroName: string, power: string, fromEarth: boolean) {
+    this.router.navigate(
+      [`/detail/${heroName}`], {
+        queryParams: { fromEarth },
+        fragment: power 
+      })
+  }
 }
