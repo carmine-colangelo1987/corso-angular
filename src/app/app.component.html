@@ -2,7 +2,20 @@
     <h4>Boilerplate del nostro</h4>
     <h1>{{title}}</h1>
 
-    <div class="container">
+
+    <app-poke-container></app-poke-container>
+
+    <div class="container text-center my-4">
+        <button class="btn btn-primary" (click)="toggle()">
+            toggle users
+        </button>
+        <figure *ngIf="image">
+            <img [src]="image" alt="">
+        </figure>
+    </div>
+    
+
+    <div class="container" *ngIf="isActive">
         <div class="row row-columns-3">
             <div class="col">
                 <app-user></app-user>

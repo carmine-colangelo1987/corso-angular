@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 import { User } from 'src/app/model/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -28,12 +29,28 @@ import { UserService } from 'src/app/services/user.service';
   `,
   providers: [UserService]
 })
-export class UserComponent {
-  
+export class UserComponent implements AfterViewInit, OnInit, OnDestroy {
+  @ViewChild('planetRef') planetRef: ElementRef
+
   users: User[] = []
+
+  private _sub: Subscription
 
   constructor(private _users$: UserService) { 
     this.updateUserList()
+  }
+
+  ngOnInit() {
+    this._sub = interval(1000).subscribe(count => console.log(count))
+  }
+
+  ngAfterViewInit() {
+    console.log('UserComponent planetRef', this.planetRef)
+    // questo planetRef è definito nel template del componente planet, e questo componente (che è padre) non può accedervi!
+  }
+
+  ngOnDestroy() {
+    this._sub.unsubscribe()
   }
 
   updateUserList() {
@@ -43,8 +60,8 @@ export class UserComponent {
 
   deleteUser(user: User) {
     this._users$.deleteUser(user)
-    this.updateUserList()
-    
+    this.updateUserList() 
   }
+
 
 }
